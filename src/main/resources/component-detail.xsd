@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.toke.dev/components"
+            xmlns:tns="http://www.toke.dev/components"
+            elementFormDefault="qualified">
+    <xsd:element name="ComponentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="partnumber" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ComponentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ComponentDetails" type="tns:ComponentDetails"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="AllComponentsRequest">
+        <xsd:complexType>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="AllComponentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ComponentDetails" type="tns:ComponentDetails" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="DeleteComponentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="partnumber" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="DeleteComponentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- 1 is success; 0 for failure; -->
+                <xsd:element name="status" type="tns:Status"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:simpleType name="Status">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="SUCCESS" />
+            <xsd:enumeration value="FAILURE" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="ComponentDetails">
+        <xsd:sequence>
+            <xsd:element name="partnumber" type="xsd:int"/>
+            <xsd:element name="description" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:float"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

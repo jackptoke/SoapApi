@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ComponentResponse xmlns="https://wwww.toke.dev/components">
+    <ComponentDetails>
+        <partnumber>1234</partnumber>
+        <description>Something about the component</description>
+        <weight>0.02</weight>
+    </ComponentDetails>
+</ComponentResponse>

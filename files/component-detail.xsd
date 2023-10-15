@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="https://wwww.toke.dev/components"
+        xmlns:tns="https://wwww.toke.dev/components"
+        elementFormDefault="qualified"
+>
+    <xsd:element name="ComponentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="partnumber" type="xsd:integer" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ComponentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ComponentDetails" type="tns:ComponentDetails"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="ComponentDetails">
+        <xsd:sequence>
+            <xsd:element name="partnumber" type="xsd:integer" />
+            <xsd:element name="description" type="xsd:string" />
+            <xsd:element name="weight" type="xsd:float" />
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
